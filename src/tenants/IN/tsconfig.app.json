@@ -1,0 +1,22 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "paths": {  // this section was additional added. https://www.9lessons.info/2019/07/angular-multi-tenant-project.html
+      " @shared/* ": [ " ../../../shared/* " ]
+    }
+  },
+  "files": [
+    // "src/main.ts"
+    "main.ts"
+
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ],
+  " exclude " : [ " test.ts " , " **/*.spec.ts " , " e2e " ] // useful if u want e2e folder tobe excluded.
+
+}

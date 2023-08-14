@@ -14,18 +14,18 @@
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/multitenant1",
-            "index": "src/index.html",
-            "main": "src/main.ts",
+            "index": "src/tenants/US/index.html",
+            "main": "src/tenants/US/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "tsconfig.app.json",
+            "tsConfig": "./src/tenants/US/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/tenants/US/favicon.ico",
+              "src/tenants/US/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/tenants/US/styles.css"
             ],
             "scripts": []
           },
@@ -83,11 +83,193 @@
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/tenants/US/favicon.ico",
+              "src/tenants/US/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/tenants/US/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "UK": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/UK",
+            "index": "src/tenants/UK/index.html",
+            "main": "src/tenants/UK/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "./src/tenants/UK/tsconfig.app.json",
+            "assets": [
+              "src/tenants/UK/favicon.ico",
+              "src/tenants/UK/assets"
+            ],
+            "styles": [
+              "src/tenants/UK/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "UK:build:production"
+            },
+            "development": {
+              "browserTarget": "UK:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "UK:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/tenants/UK/favicon.ico",
+              "src/tenants/UK/assets"
+            ],
+            "styles": [
+              "src/tenants/UK/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "multitenant3": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/multitenant3",
+            "index": "src/tenants/IN/index.html",
+            "main": "src/tenants/IN/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "./src/tenants/IN/tsconfig.app.json",
+            "assets": [
+              "src/tenants/IN/favicon.ico",
+              "src/tenants/IN/assets"
+            ],
+            "styles": [
+              "src/tenants/IN/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "multitenant3:build:production"
+            },
+            "development": {
+              "browserTarget": "multitenant3:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "multitenant3:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/tenants/IN/favicon.ico",
+              "src/tenants/IN/assets"
+            ],
+            "styles": [
+              "src/tenants/IN/styles.css"
             ],
             "scripts": []
           }
